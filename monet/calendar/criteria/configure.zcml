@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="monet.calendar.criteria">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package="monet.calendar.event" />
+  
+  <class class=".duration_event_criteria.MonetATDateCriteria">
+    <require
+        permission="zope2.View"
+        interface=".duration_event_criteria.IMonetTopicSearchCriterion"
+        />
+  </class>
+
+</configure>
