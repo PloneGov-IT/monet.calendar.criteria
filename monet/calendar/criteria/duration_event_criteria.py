@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import datetime
+import time
 
 if sys.version_info < (2, 6):
     Plone3 = True
@@ -10,8 +12,7 @@ else:
     Plone3 = False
     from Products.ATContentTypes.interfaces import IATTopicSearchCriterion as IBase
 
-from zope.interface import implements, Interface
-import datetime
+from zope.interface import implements
 
 from AccessControl import ClassSecurityInfo
 from Products.CMFCore.permissions import View
@@ -25,7 +26,7 @@ from Products.ATContentTypes import ATCTMessageFactory as _
 from Products.Archetypes.atapi import DisplayList
 from DateTime import DateTime
 
-from monet.calendar.event.config import PROJECTNAME
+from monet.calendar.criteria.config import PROJECTNAME
 
 
 CompareOperations = DisplayList((
@@ -37,8 +38,12 @@ monet_ATDateCriteriaSchema['operation'].vocabulary = CompareOperations
 
 
 def date_range(start, end):
-    start = datetime.datetime.strptime(start.strftime('%Y-%m-%d'), '%Y-%m-%d')
-    end = datetime.datetime.strptime(end.strftime('%Y-%m-%d'), '%Y-%m-%d')
+    if Plone3:
+        start = datetime.datetime(*(time.strptime(start.strftime('%Y-%m-%d'), '%Y-%m-%d')[0:6]))
+        end = datetime.datetime(*(time.strptime(end.strftime('%Y-%m-%d'), '%Y-%m-%d')[0:6]))        
+    else:
+        start = datetime.datetime.strptime(start.strftime('%Y-%m-%d'), '%Y-%m-%d')
+        end = datetime.datetime.strptime(end.strftime('%Y-%m-%d'), '%Y-%m-%d')
     r = (end+datetime.timedelta(days=1)-start).days
     return [start+datetime.timedelta(days=i) for i in range(r)]
 
@@ -57,8 +62,8 @@ class MonetATDateCriteria(ATDateCriteria):
     security       = ClassSecurityInfo()
     schema         = monet_ATDateCriteriaSchema
     meta_type      = 'monet_ATFriendlyDateCriteria'
-    archetype_name = 'Friendly Date Criteria'
-    shortDesc      = 'Relative date'
+    archetype_name = 'Calendar friendly Date Criteria'
+    shortDesc      = 'Calendar relative date'
 
 
 
@@ -96,8 +101,8 @@ class MonetATDateRangeCriterion(ATDateRangeCriterion):
     security       = ClassSecurityInfo()
     schema         = ATDateRangeCriterionSchema
     meta_type      = 'monet_ATDateRangeCriterion'
-    archetype_name = 'Date Range Criterion'
-    shortDesc      = 'Date range'
+    archetype_name = 'Calendar Date Range Criterion'
+    shortDesc      = 'Calendar date range'
 
 
     security.declareProtected(View, 'getCriteriaItems')
