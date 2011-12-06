@@ -36,3 +36,11 @@ __ http://www.provincia.fe.it/
 __ http://www.regione.emilia-romagna.it/
 __ http://www.plonegov.it/
 
+Authors
+=======
+
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.net/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.net/
