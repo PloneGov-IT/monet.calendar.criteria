@@ -8,7 +8,7 @@ __ http://plone.org/products/monet.calendar.star
 
 This product give to Plone two new types of collection criteria, explicitly using features
 given by `monet.calendar.event`__. You will be able to perform Collection search that
-take care of event's "Ignorer" and "Includes" filters.
+take care of event's filters: weekdays, days to ignore and days to include.
 
 __ http://pypi.python.org/pypi/monet.calendar.event/
 
