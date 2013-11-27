@@ -6,7 +6,7 @@ version = '0.1.0'
 setup(name='monet.calendar.criteria',
       version=version,
       description="Additional Plone collection criteria for Monet Calendar suite",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
@@ -17,7 +17,7 @@ setup(name='monet.calendar.criteria',
         "Framework :: Plone :: 4.1",
         "Programming Language :: Python",
         ],
-      keywords='',
+      keywords='plone plonegov calendar event collection',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.it',
       url='http://plone.org/products/monet.calendar.star',
@@ -28,7 +28,7 @@ setup(name='monet.calendar.criteria',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'monet.calendar.event'
+          'monet.calendar.event>0.4.0'
       ],
       entry_points="""
       # -*- Entry points: -*-

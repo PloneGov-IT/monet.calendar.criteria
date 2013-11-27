@@ -57,15 +57,12 @@ class MonetATDateCriteria(ATDateCriteria):
         __implements__ = ATBaseCriterion.__implements__ + (IATTopicSearchCriterion, )
     else:
         implements(IMonetTopicSearchCriterion)
-    
 
     security       = ClassSecurityInfo()
     schema         = monet_ATDateCriteriaSchema
     meta_type      = 'monet_ATFriendlyDateCriteria'
     archetype_name = 'Calendar friendly Date Criteria'
     shortDesc      = 'Calendar relative date'
-
-
 
     security.declareProtected(View, 'getCriteriaItems')
     def getCriteriaItems(self):
@@ -103,7 +100,6 @@ class MonetATDateRangeCriterion(ATDateRangeCriterion):
     meta_type      = 'monet_ATDateRangeCriterion'
     archetype_name = 'Calendar Date Range Criterion'
     shortDesc      = 'Calendar date range'
-
 
     security.declareProtected(View, 'getCriteriaItems')
     def getCriteriaItems(self):

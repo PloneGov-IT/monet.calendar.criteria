@@ -3,7 +3,7 @@
 from monet.calendar.criteria import logger
 
 INDEXES_TO_ADD = (
-                  ('EventDuration', 'KeywordIndex', {'indexed_attrs': 'getISODates',},),
+
                   )
 
 def _addKeysToCatalog(portal):
