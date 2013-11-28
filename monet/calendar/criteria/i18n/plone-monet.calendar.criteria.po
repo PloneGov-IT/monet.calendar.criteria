@@ -16,6 +16,7 @@ msgstr ""
 "Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
+"X-Is-Fallback-For: it-ch it-it\n"
 
 #: ./profiles/default/portal_atct.xml
 msgid "Event occurence"
