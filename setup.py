@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1.0'
+version = '0.2.0.dev0'
 
 setup(name='monet.calendar.criteria',
       version=version,
@@ -15,6 +15,8 @@ setup(name='monet.calendar.criteria',
         "Framework :: Plone :: 3.3",
         "Framework :: Plone :: 4.0",
         "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
       keywords='plone plonegov calendar event collection',
